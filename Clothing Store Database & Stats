@@ -1,0 +1,27 @@
+--Create a store data base
+
+CREATE TABLE clothes (id Integer Primary Key,
+item TEXT, aisle INTEGER, price_DOLLARS INTEGER, gender TEXT, quality TEXT);
+
+INSERT into clothes VALUES (1, "DRESS", 3, 5, "FEMALE", "GOOD");
+INSERT into clothes VALUES (2, "SHIRT", 2, 12, "MALE", "GOOD");
+INSERT into clothes VALUES (3, "PANTS", 4, 5, "FEMALE", "GREAT");
+INSERT into clothes VALUES (4, "SHOES", 12, 100, "MALE", "OK");
+INSERT into clothes VALUES (5, "BELT", 4, 6, "MALE", "GOOD");
+INSERT into clothes VALUES (6, "SOCKS", 12, 13, "UNISEX", "GREAT");
+INSERT into clothes VALUES (7, "JACKET", 8, 50, "FEMALE", "GREAT");
+INSERT into clothes VALUES (8, "SWEATER", 8, 25, "FEMALE", "OKAY");
+INSERT into clothes VALUES (9, "UNDERWEAR", 6, 13, "MALE", "GOOD");
+INSERT into clothes VALUES (10, "BRAS", 6, 15, "FEMALE", "GREAT");
+INSERT into clothes VALUES (11, "FLANNEL", 8, 14, "UNISEX", "OKAY");
+INSERT into clothes VALUES (12, "TIGHTS", 6, 11, "FEMALE", "CHEAP_QUALITY");
+INSERT into clothes VALUES (13, "LEGGINGS", 7, 18, "FEMALE", "GREAT");
+INSERT into clothes VALUES (14, "HAT", 4, 30, "UNISEX", "GREAT");
+INSERT into clothes VALUES (15, "SKIRT", 3, 15, "FEMALE", "CHEAP_QUALITY");
+
+SELECT * FROM clothes;
+--display the database ordered by price. 
+SELECT * FROM clothes ORDER BY price_dollars;
+
+--display how much one would spend on clothes at this store
+SELECT SUM (price_dollars) from clothes;
