@@ -1,0 +1,21 @@
+SELECT * FROM topmovies WHERE worldwide>2000 AND year>2000;
+SELECT MAX(Overseas) FROM topmovies;
+SELECT AVG(Year) FROM topmovies;
+SELECT title, studio FROM topmovies WHERE studio= "fox";
+
+
+SELECT COUNT(*),
+CASE
+WHEN YEAR BETWEEN 1990 AND 2000 THEN "OLD"
+WHEN YEAR BETWEEN 2000 AND 2010 THEN "CHILDHOOD_MOVIES"
+WHEN YEAR BETWEEN 2010 AND 2020 THEN "PARTIALLY_NEW"
+ELSE "VERY OLD"
+END AS MOVIE_TYPES
+FROM topmovies
+GROUP BY MOVIE_TYPES;
+
+SELECT title FROM topmovies WHERE year >2010 AND STUDIO= "Sony";
+SELECT MIN(WORLDWIDE) FROM topmovies;
+SELECT year, title FROM topmovies WHERE studio in ("Sony", "Fox");
+SELECT title, studio FROM topmovies WHERE worldwide >2000;
+SELECT * FROM topmovies WHERE year>1990 OR worldwide >2000;
