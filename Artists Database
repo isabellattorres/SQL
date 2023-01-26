@@ -1,0 +1,49 @@
+/* Create table about musical artists */
+CREATE TABLE artists (id integer primary key , name TEXT, genre TEXT, age INTEGER, gender TEXT);
+INSERT into artists VALUES (1, "Brittney", "pop", "female", "41");
+INSERT into artists VALUES(2, "Nicki", "Rap", "female", "40");
+INSERT into artists VALUES(3, "Ariana", "pop","female", "29");
+INSERT into artists VALUES (4, "Miley", "pop", "female", "30");
+INSERT into artists VALUES(5, "Mac", "rap", "male", "26");
+INSERT into artists VALUES (6,"lil_wayne","rap","male","40");
+INSERT into artists VALUES (7, "Beyonce","Rap","female","41");
+INSERT into artists VALUES(8, "Jayz","rap","male","53");
+INSERT into artists VALUES(9, "Madonna","pop","female","64");
+INSERT into artists VALUES(10, "SZA", "rap","female","33");
+INSERT into artists VALUES (11, "Taylor_Swift", "pop", "female","33");
+INSERT into artists VALUES (12, "Lady_Gaga","pop","female","36");
+
+/* Create table about astro signs */
+CREATE TABLE signs (id integer primary key, name TEXT);
+INSERT into signs VALUES (1,"sagittarius");
+INSERT into signs VALUES (2,"sagittarius");
+INSERT into signs VALUES (3,"cancer");
+INSERT into signs VALUES (4,"sagittarius");
+INSERT into signs VALUES (5,"capricorn");
+INSERT into signs VALUES (6, "libra");
+INSERT into signs VALUES (7,"virgo");
+INSERT into signs VALUES (8,"sagittarius");
+INSERT into signs VALUES (9,"leo");
+INSERT into signs VALUES(10,"scorpio");
+INSERT into signs VALUES (11,"sagittarius");
+INSERT into signs VALUES (12, "aries");
+
+CREATE TABLE kids (id integer primary key, quantity INTEGER);
+INSERT into kids VALUES (1,"2");
+INSERT into kids VALUES (2,"1");
+INSERT into kids VALUES (3, "0");
+INSERT into kids VALUES (4, "0");
+INSERT into kids VALUES (5,"0");
+INSERT into kids VALUES (6,"3");
+INSERT into kids VALUES(7,"3");
+INSERT into kids VALUES(8,"3");
+INSERT into kids VALUES(9,"6");
+INSERT into kids VALUES(10,"0");
+INSERT into kids VALUES (11,"0");
+INSERT into kids VALUES(12,"0");
+
+/*Show how many children each artist has*/
+SELECT artists.name, kids.quantity from artists JOIN kids ON artists.id=kids.id;
+
+/*Show the astrological sign of each artist*/
+SELECT artists.name, signs.name from artists JOIN signs ON artists.id=signs.id;
