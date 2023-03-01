@@ -1,1 +1,27 @@
 # For this project, I downloaded Chinook data from Kaggle.
+
+#1. Show Customers (their full names, customer ID, and country) who are not in the US
+select firstname, lastname, customerid, country
+FROM chinook.customers
+WHERE country !='USA'
+
+#2. Show only the Customers from Brazil.
+select firstname, lastname, customerid, country
+FROM chinook.customers
+WHERE country = 'Brazil'
+
+#3. Find the Invoices of customers who are from Brazil. The resulting table should show the customer's full name, Invoice ID, Date of the invoice, and billing country.
+select c.firstname, c.lastname,inv.invoiceid, inv.invoicedate,inv.billingcountry
+from chinook.invoices inv
+INNER JOIN chinook.customers c
+ON inv.customerid=c.customerid
+WHERE inv.billingcountry='Brazil'
+
+#4. Show the Employees who are Sales Agents.
+select * from 
+chinook.employees
+where title='Sales Support Agent'
+
+#5. Find a unique/distinct list of billing countries from the Invoice table.
+select distinct billingcountry 
+from chinook.invoices
