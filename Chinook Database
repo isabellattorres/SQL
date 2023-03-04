@@ -65,4 +65,27 @@ from chinook.tracks
 join chinook.invoice_items
 on tracks.trackid=invoice_items.trackid
 
-#11.
+#11. Provide a query that shows all the Tracks, and include the Album name, Media type, and Genre.
+Show the total sales made by each sales agent.
+
+select tracks.name as 'song name', albums.title as 'album name', genres.name as 'genre', media_types.name as 'media type'
+from chinook.tracks
+left join chinook.albums
+on tracks.albumid=albums.albumid
+inner join chinook.genres
+on tracks.genreid=genres.genreid
+inner join chinook.media_types
+on tracks.mediatypeid=media_types.mediatypeid
+
+#12. Show the total sales made by each sales agent.
+
+select employees.firstname, employees.lastname,
+round(sum(invoices.total),2) as 'total sales'
+from chinook.employees
+join chinook.customers
+on customers.supportrepid=employees.employeeid
+join chinook.invoices 
+on invoices.customerid=customers.customerid
+where employees.title= 'sales agent'
+group by employees.firstname
+
